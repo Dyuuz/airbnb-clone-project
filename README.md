@@ -47,6 +47,7 @@ Implement and manage CI/CD pipelines for streamlined deployment.
 
 Gain hands-on experience integrating Django, MySQL, and GraphQL into a unified ecosystem.
 
+
 # Team Roles
 
 A successful software development project like the Airbnb Clone requires collaboration across multiple specialized roles. Each team member contributes unique expertise to ensure the delivery of a functional, secure, and scalable application. Below are the primary roles and their responsibilities within this project:
@@ -93,6 +94,7 @@ Test Automation Engineers create automated scripts to continuously test the appl
 
 The DevOps Engineer streamlines deployment and maintenance processes. They configure CI/CD pipelines (e.g., using GitHub Actions), manage Docker containers, and ensure smooth integration between development and production environments. Their work enables rapid, reliable, and secure application updates.
 
+
 # Technology Stack
 
 This project leverages a modern and scalable set of technologies to build, manage, and deploy a full-featured Airbnb-like web application. Each tool in the stack serves a specific purpose in ensuring efficiency, security, and maintainability throughout the development lifecycle.
@@ -128,6 +130,7 @@ These core web technologies handle the frontend user interface. HTML structures 
 8. RESTful and API Security Tools
 
 Security is implemented through authentication, authorization, and data validation mechanisms. These tools protect sensitive user data, prevent unauthorized access, and ensure safe communication between client and server.
+
 
 # Database Design
 
@@ -258,3 +261,40 @@ User ↔ Booking: One-to-Many (a user can make many bookings).
 Property ↔ Review: One-to-Many (a property can have many reviews).
 
 Booking ↔ Payment: One-to-One (each booking has one payment record).
+
+
+# Feature Breakdown
+
+The Airbnb Clone Project replicates key functionalities of the real Airbnb platform, providing users with a smooth booking experience while maintaining robust backend operations. Each feature contributes to building a secure, user-friendly, and scalable application.
+
+1. User Management
+
+This feature handles user registration, authentication, and role-based access control (for hosts and guests). It ensures secure login, profile management, and user data protection using authentication and authorization mechanisms.
+
+2. Property Management
+
+Hosts can create, update, and manage property listings, including details such as title, description, price, and location. This feature enables users to showcase available spaces, upload photos, and manage availability calendars.
+
+3. Booking System
+
+The booking module allows guests to search for available properties, select dates, and make reservations. It ensures data consistency by preventing double bookings and maintaining accurate availability records.
+
+4. Review and Rating System
+
+Users can provide feedback and rate properties after their stay. Reviews help maintain transparency and improve trust between hosts and guests, contributing to the platform’s overall credibility.
+
+5. Payment Integration
+
+This feature manages secure and reliable payment processing for bookings. It records transaction details, supports multiple payment methods, and ensures all transactions are properly linked to bookings.
+
+6. Search and Filter
+
+Guests can easily search properties based on location, price range, date, and amenities. This feature enhances user experience by enabling fast and accurate property discovery.
+
+7. API Security and Data Protection
+
+Implements authentication, data validation, and access control measures. It protects user information and ensures only authorized users can perform sensitive operations such as booking or payment processing.
+
+8. CI/CD and Deployment Automation
+
+Automated pipelines (via GitHub Actions) handle continuous integration, testing, and deployment. This feature reduces manual errors and ensures new updates are deployed quickly and consistently.
