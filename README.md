@@ -298,3 +298,64 @@ Implements authentication, data validation, and access control measures. It prot
 8. CI/CD and Deployment Automation
 
 Automated pipelines (via GitHub Actions) handle continuous integration, testing, and deployment. This feature reduces manual errors and ensures new updates are deployed quickly and consistently.
+
+
+# API Security
+
+Securing the backend APIs of the Airbnb Clone Project is essential to protect user data, maintain trust, and ensure the platform operates safely and reliably. This section outlines the core security measures implemented in the project and their importance.
+
+1. Authentication
+
+Ensures that only verified users can access protected endpoints.
+
+Implementation: User login and registration processes use secure authentication mechanisms such as JWT (JSON Web Tokens) or session-based authentication.
+
+Importance: Protects user accounts from unauthorized access and ensures that actions like booking, listing, and payment are performed only by verified users.
+
+2. Authorization
+
+Determines user permissions and access levels within the system.
+
+Implementation: Role-based access control (RBAC) distinguishes between guests, hosts, and administrators.
+
+Importance: Prevents users from performing unauthorized actions, such as modifying another user’s booking or accessing restricted data.
+
+3. Data Encryption
+
+Protects sensitive information during storage and transmission.
+
+Implementation: Uses HTTPS for secure communication and encrypts sensitive data like passwords and payment details.
+
+Importance: Ensures confidentiality of personal and financial information, reducing the risk of data breaches or interception.
+
+4. Input Validation and Sanitization
+
+Prevents malicious inputs and attacks such as SQL injection or cross-site scripting (XSS).
+
+Implementation: All input data is validated and sanitized at both frontend and backend levels.
+
+Importance: Maintains data integrity and protects the system from manipulation or unauthorized database access.
+
+5. Rate Limiting and Throttling
+
+Restricts the number of API requests a user or client can make within a specific time frame.
+
+Implementation: Middleware is used to monitor and limit excessive API requests.
+
+Importance: Protects against denial-of-service (DoS) attacks and helps maintain system stability.
+
+6. Error Handling and Logging
+
+Prevents exposure of sensitive information through error responses.
+
+Implementation: Structured logging and generic error messages are used to handle exceptions securely.
+
+Importance: Ensures system transparency for developers while hiding critical details from potential attackers.
+
+7. Payment Security
+
+Protects transaction data and ensures safe financial operations.
+
+Implementation: Payment integrations use secure gateways and comply with industry standards such as PCI-DSS.
+
+Importance: Builds trust with users by ensuring their financial information and transactions are handled safely.
