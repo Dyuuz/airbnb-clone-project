@@ -128,3 +128,133 @@ These core web technologies handle the frontend user interface. HTML structures 
 8. RESTful and API Security Tools
 
 Security is implemented through authentication, authorization, and data validation mechanisms. These tools protect sensitive user data, prevent unauthorized access, and ensure safe communication between client and server.
+
+# Database Design
+
+The database for the Airbnb Clone Project is designed using a relational model to maintain data integrity and represent real-world relationships between users, properties, bookings, reviews, and payments. The structure supports scalability, efficient queries, and reliable data storage for all core application features.
+
+Key Entities and Relationships
+1. Users
+
+Represents all users of the platform, including hosts and guests.
+Important Fields:
+
+id: Primary key identifier for each user.
+
+username: Unique name for login and profile identification.
+
+email: User’s contact email (unique).
+
+password: Hashed password for secure authentication.
+
+role: Defines whether the user is a host or guest.
+
+Relationships:
+
+A user can list multiple properties.
+
+A user can make multiple bookings.
+
+A user can write multiple reviews.
+
+2. Properties
+
+Represents listings created by hosts.
+Important Fields:
+
+id: Primary key for the property.
+
+host_id: Foreign key linking to the Users table.
+
+title: The name or title of the property listing.
+
+location: Address or city where the property is located.
+
+price_per_night: Cost of booking per night.
+
+Relationships:
+
+A property belongs to one user (host).
+
+A property can have multiple bookings.
+
+A property can have multiple reviews.
+
+3. Bookings
+
+Tracks reservation details between guests and properties.
+Important Fields:
+
+id: Primary key for each booking.
+
+user_id: Foreign key linking to the Users table (guest).
+
+property_id: Foreign key linking to the Properties table.
+
+check_in: Date of arrival.
+
+check_out: Date of departure.
+
+status: Current booking status (e.g., confirmed, canceled).
+
+Relationships:
+
+A booking belongs to one user (guest).
+
+A booking belongs to one property.
+
+A booking can have one payment record.
+
+4. Reviews
+
+Captures user feedback for properties.
+Important Fields:
+
+id: Primary key for each review.
+
+user_id: Foreign key linking to the Users table.
+
+property_id: Foreign key linking to the Properties table.
+
+rating: Numerical score (e.g., 1–5).
+
+comment: Text review content.
+
+Relationships:
+
+A review belongs to one user.
+
+A review belongs to one property.
+
+5. Payments
+
+Records transaction details for bookings.
+Important Fields:
+
+id: Primary key for each payment.
+
+booking_id: Foreign key linking to the Bookings table.
+
+amount: Total amount paid.
+
+payment_method: Method used (e.g., card, wallet).
+
+payment_status: Indicates success or failure of the transaction.
+
+Relationships:
+
+A payment belongs to one booking.
+
+Each booking can have one payment record.
+
+Entity Relationships Summary
+
+User ↔ Property: One-to-Many (a user can own many properties).
+
+Property ↔ Booking: One-to-Many (a property can have many bookings).
+
+User ↔ Booking: One-to-Many (a user can make many bookings).
+
+Property ↔ Review: One-to-Many (a property can have many reviews).
+
+Booking ↔ Payment: One-to-One (each booking has one payment record).
