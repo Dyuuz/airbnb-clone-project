@@ -92,3 +92,39 @@ Test Automation Engineers create automated scripts to continuously test the appl
 9. DevOps Engineer
 
 The DevOps Engineer streamlines deployment and maintenance processes. They configure CI/CD pipelines (e.g., using GitHub Actions), manage Docker containers, and ensure smooth integration between development and production environments. Their work enables rapid, reliable, and secure application updates.
+
+# Technology Stack
+
+This project leverages a modern and scalable set of technologies to build, manage, and deploy a full-featured Airbnb-like web application. Each tool in the stack serves a specific purpose in ensuring efficiency, security, and maintainability throughout the development lifecycle.
+
+1. Django
+
+A high-level Python web framework used for building the backend of the application. Django handles server-side logic, authentication, and data management. It allows developers to create RESTful or GraphQL APIs efficiently while maintaining security and scalability.
+
+2. MySQL
+
+A relational database management system used to store and manage structured data such as user information, property listings, reservations, and transaction history. MySQL provides high performance, data integrity, and support for complex queries.
+
+3. GraphQL
+
+An advanced API query language that enables clients to request specific data efficiently. In this project, GraphQL helps improve data retrieval between the frontend and backend, reducing unnecessary API calls and improving response performance.
+
+4. Docker
+
+A containerization platform used to package the application and its dependencies into lightweight, portable containers. Docker ensures consistency across development and production environments, simplifying deployment and scaling.
+
+5. Git & GitHub
+
+Version control and collaboration tools used to manage source code changes. Git tracks modifications locally, while GitHub serves as a remote repository for team collaboration, pull requests, and project documentation.
+
+6. GitHub Actions
+
+A CI/CD (Continuous Integration and Continuous Deployment) service provided by GitHub. It automates testing, building, and deployment workflows to ensure faster delivery and higher code quality.
+
+7. HTML, CSS, and JavaScript
+
+These core web technologies handle the frontend user interface. HTML structures the web pages, CSS manages styling and layout, and JavaScript provides interactivity, making the platform responsive and user-friendly.
+
+8. RESTful and API Security Tools
+
+Security is implemented through authentication, authorization, and data validation mechanisms. These tools protect sensitive user data, prevent unauthorized access, and ensure safe communication between client and server.
