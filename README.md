@@ -359,3 +359,46 @@ Protects transaction data and ensures safe financial operations.
 Implementation: Payment integrations use secure gateways and comply with industry standards such as PCI-DSS.
 
 Importance: Builds trust with users by ensuring their financial information and transactions are handled safely.
+
+
+# CI/CD Pipeline
+
+Continuous Integration and Continuous Deployment (CI/CD) pipelines automate the process of building, testing, and deploying the Airbnb Clone application. They ensure that every code change is verified, integrated, and delivered quickly and reliably without manual intervention.
+
+What is CI/CD?
+
+CI/CD is a DevOps practice that helps teams deliver software more efficiently:
+
+Continuous Integration (CI) automatically builds and tests the code whenever new commits are pushed, ensuring that all changes integrate smoothly with the existing codebase.
+
+Continuous Deployment (CD) automates the delivery of the application to production or staging environments after passing all tests, reducing human error and improving release speed.
+
+Importance for This Project
+
+Implementing a CI/CD pipeline ensures:
+
+Consistency: Every build and deployment follows the same automated process.
+
+Quality Assurance: Automated testing detects bugs and integration issues early.
+
+Speed: Developers can deploy updates faster and more frequently.
+
+Collaboration: Multiple contributors can work simultaneously without disrupting the main branch.
+
+Tools Used
+
+GitHub Actions: Automates the CI/CD workflows for building, testing, and deploying the project directly from the GitHub repository.
+
+Docker: Packages the application and its dependencies into portable containers, ensuring consistent behavior across environments.
+
+Django Tests / Linters: Ensures code quality and verifies that new changes don’t break existing functionality.
+
+Example Workflow
+
+Developer pushes new code to GitHub.
+
+GitHub Actions automatically triggers the CI pipeline.
+
+The application is built and tested in a Docker container.
+
+If all checks pass, the code is deployed to the staging or production environment.
