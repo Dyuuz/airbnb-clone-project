@@ -1,127 +1,151 @@
 # 1. Entities and Attributes
-## User
+## 👤User
 
-**Primary Key: user_id
-**Attributes:
+### Primary Key: 
+- user_id
 
-user_id (PK, UUID, Indexed)
+### Attributes:
 
-first_name (VARCHAR, NOT NULL)
+- user_id (PK, UUID, Indexed)
 
-last_name (VARCHAR, NOT NULL)
+- first_name (VARCHAR, NOT NULL)
 
-email (VARCHAR, UNIQUE, NOT NULL)
+- last_name (VARCHAR, NOT NULL)
 
-password_hash (VARCHAR, NOT NULL)
+- email (VARCHAR, UNIQUE, NOT NULL)
 
-phone_number (VARCHAR, NULL)
+- password_hash (VARCHAR, NOT NULL)
 
-role (ENUM: guest, host, admin, NOT NULL)
+- phone_number (VARCHAR, NULL)
 
-created_at (TIMESTAMP, DEFAULT CURRENT_TIMESTAMP)
+- role (ENUM: guest, host, admin, NOT NULL)
 
-Property
+- created_at (TIMESTAMP, DEFAULT CURRENT_TIMESTAMP)
 
-Primary Key: property_id
-Foreign Key: host_id → User(user_id)
-Attributes:
+## 🏘️Property
 
-property_id (PK, UUID, Indexed)
+### Primary Key: 
+- property_id
 
-host_id (FK → User.user_id)
+### Foreign Key: 
+- host_id → User(user_id)
 
-name (VARCHAR, NOT NULL)
+### Attributes:
 
-description (TEXT, NOT NULL)
+- property_id (PK, UUID, Indexed)
 
-location (VARCHAR, NOT NULL)
+- host_id (FK → User.user_id)
 
-pricepernight (DECIMAL, NOT NULL)
+- name (VARCHAR, NOT NULL)
 
-created_at (TIMESTAMP, DEFAULT CURRENT_TIMESTAMP)
+- description (TEXT, NOT NULL)
 
-updated_at (TIMESTAMP, ON UPDATE CURRENT_TIMESTAMP)
+- location (VARCHAR, NOT NULL)
 
-Booking
+- pricepernight (DECIMAL, NOT NULL)
 
-Primary Key: booking_id
-Foreign Keys:
+- created_at (TIMESTAMP, DEFAULT CURRENT_TIMESTAMP)
 
-property_id → Property(property_id)
+- updated_at (TIMESTAMP, ON UPDATE CURRENT_TIMESTAMP)
 
-user_id → User(user_id)
-Attributes:
+## 🔖Booking
 
-booking_id (PK, UUID, Indexed)
+### Primary Key: 
+- booking_id
 
-property_id (FK → Property.property_id)
+### Foreign Keys:
+- property_id → Property(property_id)
 
-user_id (FK → User.user_id)
+- user_id → User(user_id)
+### Attributes:
 
-start_date (DATE, NOT NULL)
+- booking_id (PK, UUID, Indexed)
 
-end_date (DATE, NOT NULL)
+- property_id (FK → Property.property_id)
 
-total_price (DECIMAL, NOT NULL)
+- user_id (FK → User.user_id)
 
-status (ENUM: pending, confirmed, canceled, NOT NULL)
+- start_date (DATE, NOT NULL)
 
-created_at (TIMESTAMP, DEFAULT CURRENT_TIMESTAMP)
+- end_date (DATE, NOT NULL)
 
-Payment
+- total_price (DECIMAL, NOT NULL)
 
-Primary Key: payment_id
-Foreign Key: booking_id → Booking(booking_id)
-Attributes:
+- status (ENUM: pending, confirmed, canceled, NOT NULL)
 
-payment_id (PK, UUID, Indexed)
+- created_at (TIMESTAMP, DEFAULT CURRENT_TIMESTAMP)
 
-booking_id (FK → Booking.booking_id)
+## 💵Payment
 
-amount (DECIMAL, NOT NULL)
+### Primary Key: 
+- payment_id
 
-payment_date (TIMESTAMP, DEFAULT CURRENT_TIMESTAMP)
+### Foreign Key: 
+- booking_id → Booking(booking_id)
 
-payment_method (ENUM: credit_card, paypal, stripe, NOT NULL)
+### Attributes:
+- payment_id (PK, UUID, Indexed)
 
-Review
+- booking_id (FK → Booking.booking_id)
 
-Primary Key: review_id
-Foreign Keys:
+- amount (DECIMAL, NOT NULL)
 
-property_id → Property(property_id)
+- payment_date (TIMESTAMP, DEFAULT CURRENT_TIMESTAMP)
 
-user_id → User(user_id)
-Attributes:
+- payment_method (ENUM: credit_card, paypal, stripe, NOT NULL)
 
-review_id (PK, UUID, Indexed)
+## 💭Review
 
-property_id (FK → Property.property_id)
+### Primary Key:
+- review_id
 
-user_id (FK → User.user_id)
+### Foreign Keys:
+- property_id → Property(property_id)
 
-rating (INTEGER, CHECK rating >= 1 AND rating <= 5, NOT NULL)
+- user_id → User(user_id)
 
-comment (TEXT, NOT NULL)
+### Attributes:
+- review_id (PK, UUID, Indexed)
 
-created_at (TIMESTAMP, DEFAULT CURRENT_TIMESTAMP)
+- property_id (FK → Property.property_id)
 
-Message
+- user_id (FK → User.user_id)
 
-Primary Key: message_id
-Foreign Keys:
+- rating (INTEGER, CHECK rating >= 1 AND rating <= 5, NOT NULL)
 
-sender_id → User(user_id)
+- comment (TEXT, NOT NULL)
 
-recipient_id → User(user_id)
-Attributes:
+- created_at (TIMESTAMP, DEFAULT CURRENT_TIMESTAMP)
 
-message_id (PK, UUID, Indexed)
+## ✉️Message
 
-sender_id (FK → User.user_id)
+### Primary Key: 
+- message_id
 
-recipient_id (FK → User.user_id)
+### Foreign Keys:
+- sender_id → User(user_id)
 
-message_body (TEXT, NOT NULL)
+- recipient_id → User(user_id)
 
-sent_at (TIMESTAMP, DEFAULT CURRENT_TIMESTAMP)
+### Attributes:
+- message_id (PK, UUID, Indexed)
+
+- sender_id (FK → User.user_id)
+
+- recipient_id (FK → User.user_id)
+
+- message_body (TEXT, NOT NULL)
+
+- sent_at (TIMESTAMP, DEFAULT CURRENT_TIMESTAMP)
+
+# 2. Relationships Between Entities
+
+| Relationship         | Type                         | Description                                           |
+|----------------------|------------------------------|-------------------------------------------------------|
+| User → Property      | **1-to-Many**                 | A host (User) can list multiple Properties.           |
+| User → Booking       | **1-to-Many**                 | A guest (User) can make multiple Bookings.            |
+| Property → Booking   | **1-to-Many**                 | A Property can have many Bookings.                    |
+| Booking → Payment    | **1-to-1 or 1-to-Many**       | A Booking can have one or more Payments.              |
+| Property → Review    | **1-to-Many**                 | A Property can have multiple Reviews.                 |
+| User → Review        | **1-to-Many**                 | A User can write multiple Reviews.                    |
+| User → Message       | **1-to-Many (Sender/Recipient)** | A User can send and receive multiple Messages.     |
